@@ -124,28 +124,26 @@ https://github.com/user-attachments/assets/bf20692d-224a-4c55-86ec-feea72881d34)
 
 ## 📊 Evaluation
 
-The model is evaluated using COCO-style detection metrics.
+After training, I evaluated the model on the validation dataset to understand how well it detects license plates on images it did not see during training.
 
-Important metrics include:
+The model achieved strong results using COCO-style object detection metrics:
 
-| Metric | Meaning |
-|---|---|
-| AP | Average Precision across IoU thresholds |
-| AP50 | Average Precision at IoU = 0.50 |
-| AP75 | Average Precision at IoU = 0.75 |
-| APs / APm / APl | Performance for small, medium, and large objects |
+| Metric | Result | Meaning |
+|---|---:|---|
+| AP | 81.62% | Overall detection quality across multiple IoU thresholds |
+| AP50 | 96.85% | Ability to detect the general license plate area |
+| AP75 | 89.24% | Accuracy of bounding box alignment |
+| APs | 46.26% | Performance on small license plates |
+| APm | 89.68% | Performance on medium license plates |
+| APl | 92.20% | Performance on large license plates |
 
-Example result format:
+The high **AP50 score of 96.85%** shows that the model is very effective at finding license plates in validation images. The **AP75 score of 89.24%** also shows that the predicted bounding boxes are usually well aligned with the real plate locations.
 
-```text
-Average Precision  (AP) @[ IoU=0.50:0.95 ] = ...
-Average Precision  (AP50) @[ IoU=0.50 ] = ...
-Average Precision  (AP75) @[ IoU=0.75 ] = ...
-```
+The model performs especially well on medium and large license plates. Small license plates are more challenging, with an APs score of 46.26%, which is expected because small objects have fewer visible details and are harder to localize accurately.
 
-> Replace this section with your final evaluation results after running the cleaned notebook.
+Detailed evaluation notes are available here:
 
----
+[View Evaluation Results](results/evaluation_results.txt)
 
 ## 🛠️ Technologies Used
 
