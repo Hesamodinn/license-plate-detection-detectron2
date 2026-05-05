@@ -1,0 +1,171 @@
+Vehicle License Plate Detection - Evaluation Results
+====================================================
+
+Project:
+Vehicle License Plate Detection using Detectron2 and RetinaNet
+
+
+Overview
+----------------------------------------------------
+
+After training the model, I evaluated it on the validation dataset to understand how well it can detect license plates on images it did not see during training.
+
+The goal of this evaluation is not only to check whether the model can find license plates, but also to understand how accurately it places the bounding boxes around them.
+
+For this project, I used COCO-style object detection metrics because they are widely used in computer vision projects and provide a more complete view of model performance.
+
+
+Model Information
+----------------------------------------------------
+
+Framework:
+Detectron2
+
+Model Architecture:
+RetinaNet
+
+Backbone:
+ResNet-50 FPN
+
+Pretrained Weights:
+COCO Detection pretrained weights
+
+Target Class:
+vehicle-registration-plate
+
+Number of Classes:
+1
+
+
+Dataset Information
+----------------------------------------------------
+
+Training Dataset:
+Dataset/train
+
+Validation Dataset:
+Dataset/validation
+
+Validation Images:
+386
+
+The dataset contains vehicle images with bounding box annotations around the license plates. The model was trained to detect one object class: vehicle registration plate.
+
+
+Evaluation Method
+----------------------------------------------------
+
+The trained model was evaluated using the validation dataset.
+
+During evaluation, the model predicted bounding boxes for license plates, and those predictions were compared with the ground-truth annotations.
+
+The evaluation measures how close the predicted bounding boxes are to the real license plate locations.
+
+
+Metrics Summary
+----------------------------------------------------
+
+Metric        Meaning                                             Result
+---------------------------------------------------------------
+AP            Average Precision across IoU 0.50 to 0.95           81.62%
+AP50          Average Precision at IoU 0.50                       96.85%
+AP75          Average Precision at IoU 0.75                       89.24%
+APs           Average Precision for small objects                 46.26%
+APm           Average Precision for medium objects                89.68%
+APl           Average Precision for large objects                 92.20%
+---------------------------------------------------------------
+
+
+Raw COCO Evaluation Output
+----------------------------------------------------
+
+Average Precision  (AP)   @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.816
+Average Precision  (AP50) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.968
+Average Precision  (AP75) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.892
+Average Precision  (APs)  @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.463
+Average Precision  (APm)  @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.897
+Average Precision  (APl)  @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.922
+
+
+Detectron2 Evaluation Dictionary
+----------------------------------------------------
+
+bbox:
+- AP:   81.61715534769017
+- AP50: 96.84640831850696
+- AP75: 89.24368206225945
+- APs:  46.25556442883156
+- APm:  89.67735326210328
+- APl:  92.19866316810673
+
+
+What These Metrics Mean
+----------------------------------------------------
+
+AP:
+AP gives an overall view of detection quality across multiple IoU thresholds. It is a stricter metric because the model needs to detect the object and place the bounding box accurately.
+
+AP50:
+AP50 measures detection performance at an IoU threshold of 0.50. This is a more forgiving metric and is useful for checking whether the model can generally find the license plate area.
+
+AP75:
+AP75 is stricter than AP50. A strong AP75 score means the model is placing bounding boxes more accurately around the license plates.
+
+APs, APm, APl:
+These metrics show how well the model performs on small, medium, and large objects. For license plate detection, small object performance is important because plates can appear small when vehicles are far from the camera.
+
+
+Result Interpretation
+----------------------------------------------------
+
+The model achieved a strong overall AP score of 81.62%, which shows that it performs well across multiple IoU thresholds.
+
+The AP50 score is 96.85%, which means the model is very good at finding the general license plate area in the validation images.
+
+The AP75 score is 89.24%, which is also strong. This suggests that the predicted bounding boxes are not only detecting the plates, but are also closely aligned with the real plate locations.
+
+The model performs especially well on medium and large license plates, with APm at 89.68% and APl at 92.20%.
+
+The APs score is 46.26%, which shows that small license plates are more challenging. This is expected in object detection because small objects contain fewer visible details and are harder to localize accurately.
+
+
+My Evaluation Notes
+----------------------------------------------------
+
+Overall, the evaluation results are strong for a focused one-class object detection project.
+
+The model is reliable for detecting visible medium and large vehicle license plates. The high AP50 and AP75 scores show that the model can both find the plate area and draw accurate bounding boxes in most validation examples.
+
+The main area for improvement is small license plate detection. This could be improved by adding more images where plates are far from the camera, increasing dataset diversity, training for more iterations, or experimenting with image resizing and augmentation strategies.
+
+Visual predictions are useful for demonstrating the project, but these evaluation metrics make the results more reliable because they measure performance across the full validation dataset.
+
+
+Possible Improvements
+----------------------------------------------------
+
+Future improvements for this project include:
+
+- Training the model for more iterations
+- Adding more images from different lighting conditions
+- Including more camera angles and distances
+- Improving detection of small or partially visible license plates
+- Testing different confidence thresholds
+- Tuning the learning rate and batch size
+- Adding OCR to read the detected license plate text
+- Converting the notebook into reusable Python scripts
+- Deploying the model as an API using FastAPI
+- Adding real-time webcam or video stream detection
+
+
+Portfolio Summary
+----------------------------------------------------
+
+This evaluation shows that the project includes more than only model training. It follows a complete computer vision workflow, including dataset preparation, object detection training, inference, and performance evaluation.
+
+The project demonstrates practical experience with Detectron2, RetinaNet, PyTorch, OpenCV, custom dataset handling, and COCO-style evaluation.
+
+The final results are strong enough to present this as a GitHub portfolio project for computer vision, machine learning, and AI-related software development roles.
+
+
+Generated for GitHub portfolio documentation.
