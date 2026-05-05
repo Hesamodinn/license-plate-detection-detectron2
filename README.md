@@ -112,7 +112,7 @@ This image shows the trained model detecting a license plate.
 ### Video Detection Preview
 
 You can also add a GIF created from your output video.
-
+[Watch the demo]([https://example.com/video.mp4](https://www.youtube.com/watch?v=zeSJZR8pQb8))
 ![Video Detection Demo](assets/video_demo.gif)
 
 ---
