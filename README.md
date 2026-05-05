@@ -98,6 +98,9 @@ flowchart LR
 This image shows the original dataset annotation with the license plate bounding box.
 
 ![Ground Truth Sample](assets/ground_truth_sample.jpg)
+<img width="726" height="491" alt="Plot Ground Truth2" src="https://github.com/user-attachments/assets/0a137d75-f726-4a4b-b7f2-a31eabbbd2f4" />
+<img width="731" height="550" alt="Plot Ground Truth1" src="https://github.com/user-attachments/assets/48968a6d-f544-4152-b0b9-16a4797719b8" />
+
 
 ---
 
@@ -105,15 +108,17 @@ This image shows the original dataset annotation with the license plate bounding
 
 This image shows the trained model detecting a license plate.
 
-![Prediction Sample](assets/prediction_sample.jpg)
+![Prediction Sample]<img width="986" height="745" alt="Vehicle registration plate" src="https://github.com/user-attachments/assets/325bb9d0-7633-4490-8a79-e0496da5263a" />
+
+
+
+
 
 ---
 
 ### Video Detection Preview
 
-You can also add a GIF created from your output video.
-[Watch the demo]([https://example.com/video.mp4](https://www.youtube.com/watch?v=zeSJZR8pQb8))
-![Video Detection Demo](assets/video_demo.gif)
+https://github.com/user-attachments/assets/bf20692d-224a-4c55-86ec-feea72881d34))](https://github.com/user-attachments/assets/bf20692d-224a-4c55-86ec-feea72881d34
 
 ---
 
